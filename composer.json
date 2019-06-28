@@ -1,0 +1,16 @@
+{
+    "name": "prophet1/image",
+    "description": "Sage theme package for different image output",
+    "license": "GPL-2.0-only",
+    "require": {
+      "php": ">=7.1"
+    },
+    "autoload": {
+      "psr-4": {
+        "Prophe1\\Image\\": "src"
+      }
+    },
+    "require-dev": {
+      "nunomaduro/phpinsights": "^1.7"
+    }
+}
