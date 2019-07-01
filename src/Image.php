@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Prophe1\Image;
 
-use function Prophe1\Image\Utils\getFiletypeByLink;
-use function Prophe1\Image\Utils\getImageAltByID;
-use function Prophe1\Image\Utils\getImageUrlByID;
-use function Prophe1\Image\Utils\getTitleByID;
+use Prophe1\Image\Utils\ImageUtils;
 
+/**
+ * Class Image
+ *
+ * @package Prophe1\Image
+ */
 final class Image
 {
     /**
@@ -27,7 +29,7 @@ final class Image
      *
      * @var array
      */
-    private $allowedAttributes = [
+    private $allowedAttr = [
         'alt',
         'title',
     ];
@@ -44,11 +46,11 @@ final class Image
     {
         $this->data = [
             'id' => $id,
-            'src' => getImageUrlByID($this->getID(), $size),
+            'src' => ImageUtils::getImageUrlByID($this->getID(), $size),
             'size' => $size,
-            'type' => getFiletypeByLink($this->getUrl()),
-            'alt' => getImageAltByID($this->getID()),
-            'title' => getTitleByID($this->getID()),
+            'type' => ImageUtils::getFiletypeByLink($this->getUrl()),
+            'alt' => ImageUtils::getImageAltByID($this->getID()),
+            'title' => ImageUtils::getTitleByID($this->getID()),
         ];
     }
 
@@ -149,6 +151,6 @@ final class Image
      */
     public function getAttributes(): array
     {
-        return array_intersect($this->data, $this->allowedAttributes);
+        return array_intersect($this->data, $this->allowedAttr);
     }
 }

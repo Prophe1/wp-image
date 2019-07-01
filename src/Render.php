@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 namespace Prophe1\Image;
 
-use function Prophe1\Image\Utils\getImageUrlByID;
+use Prophe1\Image\Utils\ImageUtils;
 
+/**
+ * Class Render
+ *
+ * @package Prophe1\Image
+ */
 final class Render
 {
     /**
@@ -23,7 +28,7 @@ final class Render
         $sources = '';
 
         foreach ($sizes as $size => $media) {
-            $url = getImageUrlByID($image->getID(), $size);
+            $url = ImageUtils::getImageUrlByID($image->getID(), $size);
 
             if ($image->getSize() === $size) {
                 $url = $image->getUrl();
