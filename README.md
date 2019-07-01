@@ -1,14 +1,14 @@
-#Image
+# Image
 This repository contains with image output scripts for WordPress.
 
-##Usage
+## Usage
 Add `use Prophe1\Image\Render;`<br>
 <br>
 Afterwards `Render::html($image_id, $default_size, $media_sizes);`
 
 Or `Prophe1\Image\Render::html($image_id, $default_size, $media_sizes);`
 
-##Parameter meaning
+## Parameter meaning
 <table>
 <tr>
 <td><b>Parameter</b></td>
