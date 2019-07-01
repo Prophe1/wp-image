@@ -7,8 +7,8 @@
     },
     "autoload": {
       "psr-4": {
-        "Prophe1\\Image\\": "src",
-        "Prophe1\\Image\\Utils\\": "src/Utils"
+        "Prophe1\\Image\\Utils\\": "src/Utils",
+        "Prophe1\\Image\\": "src"
       }
     },
     "require-dev": {
