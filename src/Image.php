@@ -18,7 +18,7 @@ final class Image
      *
      * @since 0.0.5
      *
-     * @var \Traversable
+     * @var array
      */
     private $data;
 
@@ -27,7 +27,7 @@ final class Image
      *
      * @since 0.0.5
      *
-     * @var \Traversable
+     * @var array
      */
     private $allowedAttr = [
         'alt',
@@ -139,9 +139,9 @@ final class Image
     /**
      * Get filetype
      *
-     * @return \Traversable
+     * @return array
      */
-    public function getFiletype(): \Traversable
+    public function getFiletype(): array
     {
         return $this->data['type'];
     }
@@ -149,9 +149,9 @@ final class Image
     /**
      * Get attributes
      *
-     * @return \Traversable
+     * @return array
      */
-    public function getAttrs(): \Traversable
+    public function getAttrs(): array
     {
         return array_intersect_key($this->data, array_flip($this->allowedAttr));
     }

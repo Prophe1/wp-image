@@ -72,9 +72,9 @@ final class ImageUtils
      *
      * @param string $link
      *
-     * @return \Traversable
+     * @return array
      */
-    public static function getFiletypeByLink( string $link ): \Traversable
+    public static function getFiletypeByLink( string $link ): array
     {
         return wp_check_filetype($link);
     }

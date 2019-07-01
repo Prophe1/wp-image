@@ -19,11 +19,11 @@ final class Render
      * @since 0.0.1
      *
      * @param Image $image
-     * @param \Traversable $sizes
+     * @param array $sizes
      *
      * @return string
      */
-    private static function sources(Image $image, \Traversable $sizes): string
+    private static function sources(Image $image, array $sizes): string
     {
         $sources = '';
 
@@ -48,11 +48,11 @@ final class Render
      *
      * @since 0.0.5
      *
-     * @param \Traversable $attrs
+     * @param array $attrs
      *
      * @return string
      */
-    private static function attrs(\Traversable $attrs): string
+    private static function attrs(array $attrs): string
     {
         $content = "";
 
@@ -70,14 +70,14 @@ final class Render
      *
      * @param int $id
      * @param string|null $default
-     * @param \Traversable|null $sizes
+     * @param array|null $sizes
      *
      * @return string
      */
     public static function html(
         int $id,
         ?string $default = null,
-        ?\Traversable $sizes = null ): string
+        ?array $sizes = null ): string
     {
         $image = new Image( $id, $default );
 
