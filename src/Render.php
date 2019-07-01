@@ -19,11 +19,11 @@ final class Render
      * @since 0.0.1
      *
      * @param Image $image
-     * @param array $sizes
+     * @param \Traversable $sizes
      *
      * @return string
      */
-    private static function sources(Image $image, array $sizes): string
+    private static function sources(Image $image, \Traversable $sizes): string
     {
         $sources = '';
 
@@ -44,20 +44,40 @@ final class Render
     }
 
     /**
+     * Generate attributes for an image tag
+     *
+     * @since 0.0.5
+     *
+     * @param \Traversable $attrs
+     *
+     * @return string
+     */
+    private static function attrs(\Traversable $attrs): string
+    {
+        $content = "";
+
+        foreach ($attrs as $attribute => $value) {
+            $content .= sprintf(' %s="%s"', $attribute, $value);
+        }
+
+        return $content;
+    }
+
+    /**
      * Outputs image html with sources
      *
      * @since 0.0.1
      *
      * @param int $id
      * @param string|null $default
-     * @param array $sizes
+     * @param \Traversable|null $sizes
      *
      * @return string
      */
     public static function html(
         int $id,
         ?string $default = null,
-        array $sizes = [] ): string
+        ?\Traversable $sizes = null ): string
     {
         $image = new Image( $id, $default );
 
@@ -69,11 +89,11 @@ final class Render
         return sprintf('
             <picture>
                 %2$s
-                <img srcset="%1$s" alt="%3$s" title="%4$s">
+                <img srcset="%1$s"%3$s>
             </picture>',
             $image->getUrl(),
             self::sources($image, $sizes),
-            $image->getAttributes()
+            self::attrs($image->getAttrs())
         );
     }
 }

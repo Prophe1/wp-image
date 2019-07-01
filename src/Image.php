@@ -18,7 +18,7 @@ final class Image
      *
      * @since 0.0.5
      *
-     * @var array
+     * @var \Traversable
      */
     private $data;
 
@@ -27,7 +27,7 @@ final class Image
      *
      * @since 0.0.5
      *
-     * @var array
+     * @var \Traversable
      */
     private $allowedAttr = [
         'alt',
@@ -44,13 +44,15 @@ final class Image
      */
     public function __construct( int $id, string $size )
     {
+        $image_src = ImageUtils::getImageUrlByID($id, $size);
+
         $this->data = [
             'id' => $id,
-            'src' => ImageUtils::getImageUrlByID($this->getID(), $size),
+            'src' => $image_src,
             'size' => $size,
-            'type' => ImageUtils::getFiletypeByLink($this->getUrl()),
-            'alt' => ImageUtils::getImageAltByID($this->getID()),
-            'title' => ImageUtils::getTitleByID($this->getID()),
+            'type' => ImageUtils::getFiletypeByLink($image_src),
+            'alt' => ImageUtils::getImageAltByID($id),
+            'title' => ImageUtils::getTitleByID($id),
         ];
     }
 
@@ -101,7 +103,7 @@ final class Image
      */
     public function getUrl(): string
     {
-        return $this->data['url'];
+        return $this->data['src'];
     }
 
     /**
@@ -137,9 +139,9 @@ final class Image
     /**
      * Get filetype
      *
-     * @return array
+     * @return \Traversable
      */
-    public function getFiletype(): array
+    public function getFiletype(): \Traversable
     {
         return $this->data['type'];
     }
@@ -147,10 +149,10 @@ final class Image
     /**
      * Get attributes
      *
-     * @return array
+     * @return \Traversable
      */
-    public function getAttributes(): array
+    public function getAttrs(): \Traversable
     {
-        return array_intersect($this->data, $this->allowedAttr);
+        return array_intersect_key($this->data, array_flip($this->allowedAttr));
     }
 }

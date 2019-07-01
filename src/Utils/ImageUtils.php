@@ -64,7 +64,7 @@ final class ImageUtils
      */
     public static function getImageUrlByID( int $id, string $size ): string
     {
-        return fixSsl(wp_get_attachment_image_url( $id, $size ));
+        return self::fixSsl(wp_get_attachment_image_url( $id, $size ));
     }
 
     /**
@@ -72,9 +72,9 @@ final class ImageUtils
      *
      * @param string $link
      *
-     * @return array
+     * @return \Traversable
      */
-    public static function getFiletypeByLink( string $link ): array
+    public static function getFiletypeByLink( string $link ): \Traversable
     {
         return wp_check_filetype($link);
     }
