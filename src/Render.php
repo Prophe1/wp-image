@@ -72,14 +72,18 @@ final class Render
      * @param string|null $default
      * @param array|null $sizes
      *
-     * @return string
+     * @return string|null
      */
     public static function html(
         int $id,
         ?string $default = null,
-        ?array $sizes = null ): string
+        ?array $sizes = null ): ?string
     {
         $image = new Image( $id, $default );
+
+        if (! $image->getUrl()) {
+            return null;
+        }
 
         if ($image->isSvg())
         {

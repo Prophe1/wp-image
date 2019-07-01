@@ -46,6 +46,10 @@ final class Image
     {
         $image_src = ImageUtils::getImageUrlByID($id, $size);
 
+        if (! $image_src) {
+            return false;
+        }
+
         $this->data = [
             'id' => $id,
             'src' => $image_src,
@@ -99,9 +103,9 @@ final class Image
     /**
      * Link Getter
      *
-     * @return string
+     * @return string|null
      */
-    public function getUrl(): string
+    public function getUrl(): ?string
     {
         return $this->data['src'];
     }
