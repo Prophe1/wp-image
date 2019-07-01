@@ -7,7 +7,7 @@
     },
     "autoload": {
       "psr-4": {
-        "Prophe1\\Image\\": "src"
+        "App\\Prophe1\\Image\\": "src"
       }
     },
     "require-dev": {
