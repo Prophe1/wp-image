@@ -89,7 +89,7 @@ final class Render
         return sprintf('
             <picture>
                 %2$s
-                <img srcset="%1$s"%3$s>
+                <img src="%1$s"%3$s>
             </picture>',
             $image->getUrl(),
             self::sources($image, $sizes),
