@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Prophe1\Image;
+namespace Prophe1\Image;
 
 final class Render
 {

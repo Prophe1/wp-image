@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Prophe1\Image;
+namespace Prophe1\Image;
 
-use function App\Prophe1\Image\Utils\getFiletypeByLink;
-use function App\Prophe1\Image\Utils\getImageAltByID;
-use function App\Prophe1\Image\Utils\getImageUrlByID;
-use function App\Prophe1\Image\Utils\getTitleByID;
+use function Prophe1\Image\Utils\getFiletypeByLink;
+use function Prophe1\Image\Utils\getImageAltByID;
+use function Prophe1\Image\Utils\getImageUrlByID;
+use function Prophe1\Image\Utils\getTitleByID;
 
 final class Image
 {
