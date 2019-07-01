@@ -62,7 +62,7 @@ final class ImageUtils
      *
      * @return string
      */
-    public static function getImageUrlByID( int $id, string $size ): string
+    public static function getImageUrlByID( int $id, ?string $size ): string
     {
         return self::fixSsl(wp_get_attachment_image_url( $id, $size ));
     }

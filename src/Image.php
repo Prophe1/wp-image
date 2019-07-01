@@ -40,9 +40,9 @@ final class Image
      * @since 0.0.1
      *
      * @param int $id
-     * @param string $size
+     * @param string|null $size
      */
-    public function __construct( int $id, string $size )
+    public function __construct( int $id, ?string $size )
     {
         $image_src = ImageUtils::getImageUrlByID($id, $size);
 
