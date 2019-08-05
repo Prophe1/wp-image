@@ -68,17 +68,21 @@ final class Render
      *
      * @since 0.0.1
      *
-     * @param int $id
+     * @param int|null $id
      * @param string|null $default
      * @param array|null $sizes
      *
      * @return string|null
      */
     public static function html(
-        int $id,
+        int $id = null,
         ?string $default = null,
         ?array $sizes = null ): ?string
     {
+        if (! $id) {
+            return null;
+        }
+
         $image = new Image( $id, $default );
 
         if (! $image->getUrl()) {
