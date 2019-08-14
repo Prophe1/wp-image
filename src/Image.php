@@ -11,7 +11,7 @@ use Prophe1\Image\Utils\ImageUtils;
  *
  * @package Prophe1\Image
  */
-final class Image
+class Image
 {
     /**
      * Image data
@@ -40,21 +40,18 @@ final class Image
      * @since 0.0.1
      *
      * @param int $id
-     * @param string|null $size
+     * @param string $url
+     * @param array $sizes
+     * @param string|null $default_size
      */
-    public function __construct( int $id, ?string $size )
+    public function __construct( int $id, string $url, array $sizes, ?string $default_size )
     {
-        $image_src = ImageUtils::getImageUrlByID($id, $size);
-
-        if (! $image_src) {
-            return false;
-        }
-
         $this->data = [
             'id' => $id,
-            'src' => $image_src,
-            'size' => $size,
-            'type' => ImageUtils::getFiletypeByLink($image_src),
+            'src' => $url,
+            'size' => $default_size,
+            'sizes' => $sizes,
+            'type' => ImageUtils::getFiletypeByLink($url),
             'alt' => ImageUtils::getImageAltByID($id),
             'title' => ImageUtils::getTitleByID($id),
         ];
@@ -76,25 +73,6 @@ final class Image
         }
 
         return false;
-    }
-
-    /**
-     * Svg content
-     *
-     * @since 0.0.1
-     *
-     * @return string
-     */
-    public function svg(): string
-    {
-        $file_link = get_attached_file( $this->getID() );
-
-        if (! file_exists($file_link))
-        {
-            return '';
-        }
-
-        return trim(file_get_contents($file_link));
     }
 
     /**
@@ -155,6 +133,16 @@ final class Image
     public function getFiletype(): array
     {
         return $this->data['type'];
+    }
+
+    /**
+     * Get sizes
+     *
+     * @return array
+     */
+    public function getSizes(): array
+    {
+        return $this->data['sizes'];
     }
 
     /**

@@ -9,7 +9,7 @@ namespace Prophe1\Image\Utils;
  *
  * @package Prophe1\Image\Utils
  */
-final class ImageUtils
+class ImageUtils
 {
     /**
      * Fix image url
@@ -62,7 +62,7 @@ final class ImageUtils
      *
      * @return string|null
      */
-    public static function getImageUrlByID( int $id, ?string $size = null ): ?string
+    public static function getImageUrl( int $id, ?string $size = null ): ?string
     {
         $image_url = wp_get_attachment_image_url( $id, $size );
 
