@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Prophe1\Image;
+namespace Prophe1\ResponsiveImage;
 
-use Prophe1\Image\Utils\ImageUtils;
+use Prophe1\ResponsiveImage\Utils\ImageUtils;
 
 /**
  * Class Image

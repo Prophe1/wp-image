@@ -4,7 +4,7 @@
  * Time: 15:32
  */
 
-namespace Prophe1\Image;
+namespace Prophe1\ResponsiveImage;
 
 /**
  * Class SvgTagOutput
