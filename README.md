@@ -2,12 +2,24 @@
 This repository contains with image output scripts for WordPress.
 
 ## Usage
-Add `use Prophe1\Image\Render;`<br>
-<br>
-Afterwards `Render::html($image_id, $default_size, $media_sizes);`
+Install package with composer, add repository to your composer.json:
+```
+"repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/Prophe1/wp-image.git"
+    }
+],
+```
+Then:
+```
+"prophe1/wp-image": "VERSION.dev"
+```
 
-Or `Prophe1\Image\Render::html($image_id, $default_size, $media_sizes);`
-
+Usage:
+```
+{!! \Prophe1\Wp\Image\Render::output($image_id, $default_size = null, $media_sizes = [], $format) !!}
+```
 ## Parameter meaning
 <table>
 <tr>
