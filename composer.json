@@ -1,5 +1,5 @@
 {
-    "name": "prophe1/wpimage",
+    "name": "prophe1/wp-image",
     "description": "Sage theme package for different image output",
     "license": "GPL-2.0-only",
     "require": {
@@ -7,7 +7,7 @@
     },
     "autoload": {
       "psr-4": {
-        "Prophe1\\WPImage\\": "src"
+        "Prophe1\\Wp\\Image\\": "src/"
       }
     },
     "require-dev": {

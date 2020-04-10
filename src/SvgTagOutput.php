@@ -4,12 +4,11 @@
  * Time: 15:32
  */
 
-namespace Prophe1\WPImage;
+namespace Prophe1\Wp\Image;
 
 /**
  * Class SvgTagOutput
- *
- * @package Prophe1\Image
+ * @package Prophe1\Wp\Image
  */
 class SvgTagOutput extends RenderAbstract
 {

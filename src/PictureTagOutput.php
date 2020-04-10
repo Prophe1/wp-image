@@ -4,14 +4,13 @@
  * Time: 15:32
  */
 
-namespace Prophe1\WPImage;
+namespace Prophe1\Wp\Image;
 
-use Prophe1\WPImage\Utils\ImageUtils;
+use Prophe1\Wp\Image\Utils\ImageUtils;
 
 /**
- * Class HtmlOutput
- *
- * @package Prophe1\Image
+ * Class PictureTagOutput
+ * @package Prophe1\Wp\Image
  */
 class PictureTagOutput extends RenderAbstract
 {

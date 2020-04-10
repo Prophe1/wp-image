@@ -1,11 +1,10 @@
 <?php
 
-namespace Prophe1\WPImage;
+namespace Prophe1\Wp\Image;
 
 /**
- * Interface RenderInterface
- *
- * @package Prophe1\Image
+ * Class RenderAbstract
+ * @package Prophe1\Wp\Image
  */
 abstract class RenderAbstract
 {

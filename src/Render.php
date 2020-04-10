@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Prophe1\WPImage;
+namespace Prophe1\Wp\Image;
 
-use Prophe1\WPImage\Utils\ImageUtils;
+use Prophe1\Wp\Image\Utils\ImageUtils;
 
 /**
  * Class Render
- *
- * @package Prophe1\Image
+ * @package Prophe1\Wp\Image
  */
 class Render
 {
