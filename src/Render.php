@@ -19,7 +19,7 @@ class Render
      *
      * @param int|null $id
      * @param string|null $default
-     * @param array|null $sizes
+     * @param array $sizes
      * @param RenderAbstract $formatter
      *
      * @return string|null
@@ -27,7 +27,7 @@ class Render
     public static function output(
         int $id = null,
         ?string $default = null,
-        ?array $sizes = null,
+        ?array $sizes = [],
         RenderAbstract $formatter = null): ?string
     {
         if ( ! $id)
@@ -40,6 +40,10 @@ class Render
         if ( ! $image_src)
         {
             return null;
+        }
+
+        if ( ! $formatter) {
+            $formatter = new PictureTagOutput();
         }
 
         $image = new Image($id, $image_src, $sizes, $default);
