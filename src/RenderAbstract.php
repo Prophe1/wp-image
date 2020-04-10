@@ -1,6 +1,6 @@
 <?php
 
-namespace Prophe1\ResponsiveImage;
+namespace Prophe1\WPImage;
 
 /**
  * Interface RenderInterface

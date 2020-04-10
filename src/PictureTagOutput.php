@@ -4,9 +4,9 @@
  * Time: 15:32
  */
 
-namespace Prophe1\ResponsiveImage;
+namespace Prophe1\WPImage;
 
-use Prophe1\ResponsiveImage\Utils\ImageUtils;
+use Prophe1\WPImage\Utils\ImageUtils;
 
 /**
  * Class HtmlOutput
