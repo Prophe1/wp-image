@@ -17,10 +17,11 @@ class Render
      *
      * @since 0.0.1
      *
-     * @param int|null $id
-     * @param string|null $default
-     * @param array $sizes
-     * @param RenderAbstract $formatter
+     * @param int|null      $id             WP Attachment ID
+     * @param string|null   $default        WP Attachment add_image_size size
+     * @param array         $sizes          Array of WP Attachment add_image_size sizes
+     * @param string|null   $imageClass     Image tag class
+     * @param RenderAbstract $formatter     Image Output format
      *
      * @return string|null
      */
@@ -28,6 +29,7 @@ class Render
         int $id = null,
         ?string $default = null,
         ?array $sizes = [],
+        ?string $imageClass = null,
         RenderAbstract $formatter = null): ?string
     {
         if ( ! $id)
@@ -35,9 +37,9 @@ class Render
             return null;
         }
 
-        $image_src = ImageUtils::getImageUrl($id, $default);
+        $imageSrc = ImageUtils::getImageUrl($id, $default);
 
-        if ( ! $image_src)
+        if ( ! $imageSrc)
         {
             return null;
         }
@@ -46,7 +48,7 @@ class Render
             $formatter = new PictureTagOutput();
         }
 
-        $image = new Image($id, $image_src, $sizes, $default);
+        $image = new Image($id, $imageSrc, $sizes, $default);
 
         $formatter->setImage($image);
 
@@ -61,6 +63,11 @@ class Render
         if ( ! $formatter)
         {
             $formatter = PictureTagOutput::class;
+        }
+
+        if ($imageClass)
+        {
+            $formatter->setClass($imageClass);
         }
 
         return $formatter->output();

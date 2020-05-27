@@ -67,10 +67,11 @@ class PictureTagOutput extends RenderAbstract
         return sprintf('
             <picture>
                 %2$s
-                <img src="%1$s"%3$s>
+                <img src="%1$s" class="%3$s"%4$s>
             </picture>',
             $this->image->getUrl(),
             $this->sources(),
+            $this->getClass(),
             $this->attrs()
         );
     }

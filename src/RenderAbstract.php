@@ -8,11 +8,15 @@ namespace Prophe1\Wp\Image;
  */
 abstract class RenderAbstract
 {
-
     /**
      * @var Image
      */
     protected $image;
+
+    /**
+     * @var string
+     */
+    protected $class;
 
     /**
      * @param Image $image
@@ -20,6 +24,22 @@ abstract class RenderAbstract
     public function setImage(Image $image)
     {
         $this->image = $image;
+    }
+
+    /**
+     * @param string $class
+     */
+    public function setClass(string $class)
+    {
+        $this->class = $class;
+    }
+
+    /**
+     * @return string
+     */
+    public function getClass()
+    {
+        return $this->class;
     }
 
     abstract public function output();
