@@ -18,7 +18,7 @@ Then:
 
 Usage:
 ```
-{!! \Prophe1\Wp\Image\Render::output($image_id, $default_size = null, $media_sizes = [], $format) !!}
+{!! \Prophe1\Wp\Image\Render::output($image_id, $default_size = null, $media_sizes = [], $imageClass = null, $format) !!}
 ```
 ## Parameter meaning
 <table>
@@ -41,5 +41,10 @@ Usage:
 <td>$media_sizes</td>
 <td>array</td>
 <td>Array of sizes and media rules <br> array('thumbnail' => '(min-width: 551px)')</td>
+</tr>
+<tr>
+<td>$imageClass</td>
+<td>string</td>
+<td>Class attribute for image tag</td>
 </tr>
 </table>
