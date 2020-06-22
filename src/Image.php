@@ -51,8 +51,8 @@ class Image
             'size' => $default_size,
             'sizes' => $sizes,
             'type' => ImageUtils::getFiletypeByLink($url),
-            'alt' => ImageUtils::getImageAltByID($id),
-            'title' => ImageUtils::getTitleByID($id),
+            'alt' => apply_filters('wp-image-get-alt', ImageUtils::getImageAltByID($id), $id),
+            'title' => apply_filters('wp-image-get-title', ImageUtils::getTitleByID($id), $id),
         ];
     }
 
