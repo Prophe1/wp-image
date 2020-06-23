@@ -14,32 +14,11 @@ abstract class RenderAbstract
     protected $image;
 
     /**
-     * @var string
-     */
-    protected $class;
-
-    /**
      * @param Image $image
      */
     public function setImage(Image $image)
     {
         $this->image = $image;
-    }
-
-    /**
-     * @param string $class
-     */
-    public function setClass(string $class)
-    {
-        $this->class = $class;
-    }
-
-    /**
-     * @return string
-     */
-    public function getClass()
-    {
-        return $this->class;
     }
 
     abstract public function output();

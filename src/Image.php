@@ -38,12 +38,13 @@ class Image
      *
      * @since 0.0.1
      *
-     * @param int $id
-     * @param string $url
-     * @param array $sizes
-     * @param string|null $default_size
+     * @param int           $id
+     * @param string        $url
+     * @param array         $sizes
+     * @param string|null   $default_size
+     * @param array         $attrs
      */
-    public function __construct( int $id, string $url, array $sizes, ?string $default_size )
+    public function __construct( int $id, string $url, array $sizes, ?string $default_size, array $attrs )
     {
         $this->data = [
             'id' => $id,
@@ -54,6 +55,10 @@ class Image
             'alt' => apply_filters('wp-image-get-alt', ImageUtils::getImageAltByID($id), $id),
             'title' => apply_filters('wp-image-get-title', ImageUtils::getTitleByID($id), $id),
         ];
+
+        if ($attrs) {
+	        $this->data = array_merge( $this->data, $attrs );
+        }
     }
 
     /**
