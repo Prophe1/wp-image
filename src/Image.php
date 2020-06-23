@@ -22,16 +22,18 @@ class Image
     private $data;
 
     /**
-     * Allowed image attributes
+     * Remove image attributes
      *
      * @since 0.0.5
      *
      * @var array
      */
-    private $allowedAttr = [
-        'alt',
-        'title',
-    ];
+	private $removeAttrs = [
+		'id',
+		'size',
+		'sizes',
+		'type'
+	];
 
     /**
      * Image constructor.
@@ -149,13 +151,13 @@ class Image
         return $this->data['sizes'];
     }
 
-    /**
-     * Get attributes
-     *
-     * @return array
-     */
-    public function getAttrs(): array
-    {
-        return array_intersect_key($this->data, array_flip($this->allowedAttr));
-    }
+	/**
+	 * Get attributes
+	 *
+	 * @return array
+	 */
+	public function getAttrs(): array
+	{
+		return array_diff_key($this->data, array_flip($this->removeAttrs));
+	}
 }
