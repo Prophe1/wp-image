@@ -59,7 +59,7 @@ class ImageUtils
      * @param string|null $size
      * @return string|null
      */
-    public static function getImageWidth( int $id, ?string $size = null ): ?string
+    public static function getImageWidth( int $id, ?string $size = null ): ?int
     {
         $image_source = wp_get_attachment_image_src( $id, $size );
 
@@ -77,7 +77,7 @@ class ImageUtils
      * @param string|null $size
      * @return string|null
      */
-    public static function getImageHeight( int $id, ?string $size = null ): ?string
+    public static function getImageHeight( int $id, ?string $size = null ): ?int
     {
         $image_source = wp_get_attachment_image_src( $id, $size );
 
