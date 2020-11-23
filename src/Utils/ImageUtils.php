@@ -52,6 +52,42 @@ class ImageUtils
         return trim(strip_tags($alt));
     }
 
+    /**
+     * Get Image width
+     *
+     * @param int $id
+     * @param string|null $size
+     * @return string|null
+     */
+    public static function getImageWidth( int $id, ?string $size = null ): ?string
+    {
+        $image_source = wp_get_attachment_image_src( $id, $size );
+
+        if (! isset($image_source[1]) || ! $image_source[1]) {
+            return null;
+        }
+
+        return $image_source[1];
+    }
+
+    /**
+     * Get Image height
+     *
+     * @param int $id
+     * @param string|null $size
+     * @return string|null
+     */
+    public static function getImageHeight( int $id, ?string $size = null ): ?string
+    {
+        $image_source = wp_get_attachment_image_src( $id, $size );
+
+        if (! isset($image_source[2]) || ! $image_source[2]) {
+            return null;
+        }
+
+        return $image_source[2];
+    }
+
 
     /**
      * Get image url by ID and size
@@ -63,13 +99,13 @@ class ImageUtils
      */
     public static function getImageUrl( int $id, ?string $size = null ): ?string
     {
-        $image_url = wp_get_attachment_image_url( $id, $size );
+        $image_source = wp_get_attachment_image_src( $id, $size );
 
-        if (! $image_url) {
+        if (! isset($image_source[0]) || ! $image_source[0]) {
             return null;
         }
 
-        return self::fixSsl($image_url);
+        return self::fixSsl($image_source[0]);
     }
 
     /**

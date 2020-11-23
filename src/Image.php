@@ -56,6 +56,8 @@ class Image
             'type' => ImageUtils::getFiletypeByLink($url),
             'alt' => apply_filters('wp-image-get-alt', ImageUtils::getImageAltByID($id), $id),
             'title' => apply_filters('wp-image-get-title', ImageUtils::getTitleByID($id), $id),
+            'width' => ImageUtils::getImageWidth($id, $default_size),
+            'height' => ImageUtils::getImageHeight($id, $default_size),
         ];
 
         if ($attrs) {
