@@ -54,15 +54,7 @@ class Render
 
         if ($image->isSvg())
         {
-            $formatter = SvgTagOutput::class;
-
-            return $formatter->output();
-        }
-
-        // Default Output to be HTML
-        if ( ! $formatter)
-        {
-            $formatter = PictureTagOutput::class;
+            $formatter = new SvgTagOutput();
         }
 
         return $formatter->output();
